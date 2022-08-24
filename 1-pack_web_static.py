@@ -13,9 +13,9 @@ def do_pack():
     """
     time = datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")
     local('mkdir -p versions')
-    file_name = f'version/web_static_{time}.tgz'
+    file_name = 'version/web_static_{}.tgz'.format(time)
     try:
-        local(f'tar -czvf {file_name} web_static')
+        local('tar -czvf {} web_static'.format(file_name))
         return file_name
     except Exception:
         return None
