@@ -13,7 +13,12 @@ def do_pack():
     """
     time = datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")
     local('mkdir -p versions')
-    file_name = f'version/web_static_{time}.tgz'
+    file_name =  "versions/web_static_{}{}{}{}{}{}.tgz".format(time("%Y"),
+                                                                  time("%m"),
+                                                                  time("%d"),
+                                                                  time("%H"),
+                                                                  time("%M"),
+                                                                  time("%S"))
     try:
         local(f'tar -czvf {file_name} web_static')
         return file_name
