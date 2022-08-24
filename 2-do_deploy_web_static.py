@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""
-script that generates a .tgz archive from the contents of the web_static
-folder of your AirBnB Clone repo, using the function do_pack.
-"""
+"""Write a Fabric script that generates a .tgz
+archive from the contents of the web_static folder
+of your AirBnB Clone repo, using the function do_pack."""
 
-from fabric.api import local, run
+from fabric.api import local, put, env, run
 from datetime import datetime
-import os
+from os.path import exists
+
+env.hosts = ['54.242.35.218', '50.16.118.128']
 
 def do_pack():
     """
@@ -22,10 +23,26 @@ def do_pack():
         return None
 
 def do_deploy(archive_path):
-    '''
-    Function that distributes an archive to your web servers
-    '''
-    if os.path.exists(archive_path) == False:
+    """ The function do_deploy """
+    if not exists(archive_path):
         return False
-    run('scp -o StrictHostKeyChecking=no -i /etc/ssh/school archive_path ubuntu@54.147.180.101:/tmp')
-    run('scp -o StrictHostKeyChecking=no -i /etc/ssh/school archive_path ubuntu@54.147.180.101:/tmp')
+    try:
+        """archive_path = versions/web_static_20170315003959.tgz """
+        file_name = archive_path.split("/")[-1]
+        """file_name = web_static_20170315003959.tgz"""
+        file_with_no_ext = file_name.split(".")[0]
+        """file_with_no_ext = web_static_20170315003959"""
+        path = "/data/web_static/releases/"
+        """Upload the archive to the /tmp/ directory of the web server"""
+        put(archive_path, '/tmp/')
+        run('mkdir -p {}{}/'.format(path, file_with_no_ext))
+        """Uncompress the archive"""
+        run('tar -xzf /tmp/{} -C {}{}/'.format(file_name, path, file_with_no_ext))
+        run('rm /tmp/{}'.format(file_name))
+        run('mv {0}{1}/web_static/* {0}{1}/'.format(path, file_with_no_ext))
+        run('rm -rf {}{}/web_static'.format(path, file_with_no_ext))
+        run('rm -rf /data/web_static/current')
+        run('ln -s {}{}/ /data/web_static/current'.format(path, file_with_no_ext))
+        return True
+    except Exception:
+        return False
