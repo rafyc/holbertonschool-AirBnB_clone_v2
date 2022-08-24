@@ -20,7 +20,7 @@ def do_pack():
                                                                   time("%M"),
                                                                   time("%S"))
     try:
-        local(f'tar -czvf {file_name} web_static')
+        local("tar -cvzf {} web_static".format(file_name))
         return file_name
     except Exception:
         return None
