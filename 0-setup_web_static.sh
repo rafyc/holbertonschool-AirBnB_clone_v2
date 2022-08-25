@@ -2,7 +2,7 @@
 #script that sets up your web servers for the deployment of web_static
 
 if [ ! -x /usr/sbin/nginx ]; then
-    apt-get -y upgrade
+    apt-get -y update
     apt-get -y install nginx
 fi
 
