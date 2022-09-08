@@ -6,12 +6,13 @@ from models.state import State
 
 app = Flask(__name__)
 
-@app.teardown_appcontext
 
+@app.teardown_appcontext
 def teardown_db(execption):
     '''
     '''
     storage.close()
+
 
 @app.route("/states_list", strict_slashes=False)
 def state():

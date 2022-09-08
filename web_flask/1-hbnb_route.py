@@ -5,11 +5,15 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def hello_world():
+    '''
+    '''
     return "<p>Hello HBNB!</p>"
 
 
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
+    '''
+    '''
     return "<p>HBNB</p>"
 
 

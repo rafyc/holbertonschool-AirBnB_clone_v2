@@ -5,22 +5,30 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def hello_world():
+    '''
+    '''
     return "<p>Hello HBNB!</p>"
 
 
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
+    '''
+    '''
     return "<p>HBNB</p>"
 
 
 @app.route("/c/<text>", strict_slashes=False)
 def cisfun(text):
+    '''
+    '''
     return f'C {text.replace("_", " ")}'
 
 
 @app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python(text="is cool"):
+    '''
+    '''
     return f'Python {text.replace("_", " ")}'
 
 
