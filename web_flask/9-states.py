@@ -29,7 +29,11 @@ def states(id):
     list_state = storage.all(State).values()
     for element in list_state:
         if element.id == id:
-            return render_template('9-states.html', state=element.id,
+            return render_template('9-states.html', state=element,
+                                   list=list_state)
+        else:
+            warn = "Not found!"
+            return render_template('9-states.html', warn=warn,
                                    list=list_state)
 
 

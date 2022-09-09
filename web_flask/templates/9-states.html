@@ -9,9 +9,11 @@
             <li>{{ state.id }}: <b>{{ state.name }}</b></li>
         {% endfor %}
         </ul>
-        <h1>State: {% state %}</h1>
+        <h1>State: {% state.name %}</h1>
+        <h1>{% warn %}</h1>
         <h3>Cities:</h3>
-        <ul>{% for cities in list|sort(attribute='name') %}
+        <ul>{% for city in state.cities|sort(attribute='name') %}
             <li>{{ city.id }}: <b>{{ city.name }}</b></li>
+        {% endfor %}
         </ul>
     </body>
