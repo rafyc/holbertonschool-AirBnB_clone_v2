@@ -19,7 +19,7 @@ def states():
     '''
     '''
     list_state = storage.all(State).values()
-    return render_template('9-states.html', list=list_state)
+    return render_template('7-states_list.html', list=list_state)
 
 
 @app.route("/states/<id>", strict_slashes=False)
