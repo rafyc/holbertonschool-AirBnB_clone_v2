@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Write a Fabric script that generates a .tgz
 archive from the contents of the web_static folder
 of your AirBnB Clone repo, using the function do_pack."""
@@ -28,11 +28,11 @@ def do_deploy(archive_path):
     if not exists(archive_path):
         return False
     try:
-        """archive_path = versions/web_static_20170315003959.tgz """
+        print("""archive_path = versions/web_static_20170315003959.tgz """)
         file_name = archive_path.split("/")[-1]
-        """file_name = web_static_20170315003959.tgz"""
+        print("""file_name = web_static_20170315003959.tgz""")
         no_ext = file_name.split(".")[0]
-        """no_ext = web_static_20170315003959"""
+        print("""no_ext = web_static_20170315003959""")
         path = "/data/web_static/releases/"
         """Upload the archive to the /tmp/ directory of the web server"""
         put(archive_path, '/tmp/')
