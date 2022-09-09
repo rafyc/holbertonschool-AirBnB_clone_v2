@@ -33,8 +33,7 @@ def states_id(id):
                                    list=list_state)
         else:
             warn = "Not found!"
-            return render_template('9-states.html', warn=warn,
-                                   list=list_state)
+            return render_template('9-states.html', warn=warn)
 
 
 if __name__ == '__main__':
