@@ -5,7 +5,6 @@
     </head>
     <body>
         <h1>State: {% state.name %}</h1>
-        <h1>{% warn %}</h1>
         <h3>Cities:</h3>
         <ul>{% for city in state.cities|sort(attribute='name') %}
             <li>{{ city.id }}: <b>{{ city.name }}</b></li>
