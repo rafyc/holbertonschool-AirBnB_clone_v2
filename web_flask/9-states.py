@@ -23,7 +23,7 @@ def states():
 
 
 @app.route("/states/<id>", strict_slashes=False)
-def states(id):
+def states_id(id):
     '''
     '''
     list_state = storage.all(State).values()
