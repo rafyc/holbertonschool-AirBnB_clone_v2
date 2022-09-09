@@ -30,7 +30,7 @@ def states_id(id):
     for element in list_state:
         if element.id == id:
             return render_template('9-states.html', state=element,
-                                   list=list_state)
+                                   list=list_state, id=1)
         else:
             warn = "Not found!"
             return render_template('9-states.html', warn=warn)
