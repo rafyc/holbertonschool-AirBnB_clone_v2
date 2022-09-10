@@ -37,7 +37,7 @@ def python(text="is cool"):
 def number(n):
     '''
     '''
-    return f'{n} is a number'
+    return '{} is a number'.format(n)
 
 
 if __name__ == '__main__':
