@@ -30,7 +30,7 @@ def cisfun(text):
 def python(text="is cool"):
     '''
     '''
-    return f'Python {text.replace("_", " ")}'
+    return 'Python {}'.format(text.replace("_", " "))
 
 
 @app.route("/number/<int:n>", strict_slashes=False)
