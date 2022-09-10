@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+'''Starts a Flask web app listening on 0.0.0.0 port 5000'''
 from flask import Flask, render_template
 from models import storage
 from models.amenity import Amenity
@@ -27,7 +27,8 @@ def hbnb():
     list_state = storage.all(State).values()
     list_amenities = storage.all(Amenity).values()
     return render_template('100-hbnb.html', list_state=list_state,
-                           list_amenities=list_amenities, list_place=list_place, list_user=list_user)
+                           list_amenities=list_amenities,
+                           list_place=list_place, list_user=list_user)
 
 
 if __name__ == '__main__':

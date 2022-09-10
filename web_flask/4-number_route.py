@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+'''Starts a Flask web app listening on 0.0.0.0 port 5000'''
 from flask import Flask
 app = Flask(__name__)
 
@@ -21,7 +22,7 @@ def hbnb():
 def cisfun(text):
     '''
     '''
-    return f'C {text.replace("_", " ")}'
+    return 'C {}'.format(text.replace("_", " "))
 
 
 @app.route("/python", strict_slashes=False)
