@@ -15,7 +15,7 @@ def hello_world():
 def hbnb():
     '''
     '''
-    return "<p>HBNB</p>"
+    return "HBNB"
 
 
 @app.route("/c/<text>", strict_slashes=False)
