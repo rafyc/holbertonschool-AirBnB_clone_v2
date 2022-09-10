@@ -3,7 +3,10 @@
 from flask import Flask, render_template
 from models import storage
 from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models.state import State
+from models.user import User
 
 app = Flask(__name__)
 
@@ -15,14 +18,16 @@ def teardown_db(execption):
     storage.close()
 
 
-@app.route("/hbnb_filters", strict_slashes=False)
-def filter():
+@app.route("/hbnb", strict_slashes=False)
+def hbnb():
     '''
     '''
+    list_user = storage.all(User).values()
+    list_place = storage.all(Place).values()
     list_state = storage.all(State).values()
     list_amenities = storage.all(Amenity).values()
-    return render_template('10-hbnb_filters.html', list_state=list_state,
-                           list_amenities=list_amenities)
+    return render_template('100-hbnb.html', list_state=list_state,
+                           list_amenities=list_amenities, list_place=list_place, list_user=list_user)
 
 
 if __name__ == '__main__':
