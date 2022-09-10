@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Starts a Flask web app listening on 0.0.0.0 port 5000"""
 from flask import Flask
 app = Flask(__name__)
