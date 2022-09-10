@@ -30,7 +30,7 @@ def cisfun(text):
 def python(text="is cool"):
     '''
     '''
-    return f'Python {text.replace("_", " ")}'
+    return 'Python {}'.format(text.replace("_", " "))
 
 
 if __name__ == '__main__':
