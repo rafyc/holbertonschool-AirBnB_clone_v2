@@ -1,23 +1,51 @@
 #!/usr/bin/python3
-"""This module starts a Flask web application"""
+'''Starts a Flask web app listening on 0.0.0.0 port 5000'''
 from flask import Flask, render_template
-from models import storage
-from models.state import State
 app = Flask(__name__)
 
 
-@app.route('/states_list', strict_slashes=False)
-def states_list():
-    """The method lists all State"""
-    list_state = storage.all(State).values()
-    return render_template('7-states_list.html', list_state=list_state)
+@app.route("/", strict_slashes=False)
+def hello_world():
+    '''
+    '''
+    return "Hello HBNB!"
 
 
-@app.teardown_appcontext
-def tear_down(exception):
-    """The method remove the current SQLAlchemy Session"""
-    storage.close()
+@app.route("/hbnb", strict_slashes=False)
+def hbnb():
+    '''
+    '''
+    return "HBNB"
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+@app.route("/c/<text>", strict_slashes=False)
+def cisfun(text):
+    '''
+    '''
+    return 'C {}'.format(text.replace("_", " "))
+
+
+@app.route("/python", strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
+def python(text="is cool"):
+    '''
+    '''
+    return 'Python {}'.format(text.replace("_", " "))
+
+
+@app.route("/number/<int:n>", strict_slashes=False)
+def number(n):
+    '''
+    '''
+    return '{} is a number'.format(n)
+
+
+@app.route("/number_template/<int:n>", strict_slashes=False)
+def template(n):
+    '''
+    '''
+    return render_template('5-number.html', name=n)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
