@@ -5,6 +5,7 @@
 	width: 100%;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
+
 }
 
 .locations {
@@ -25,6 +26,17 @@
 	float: left;
     width: 25%;
 
+
+	line-height: 20px;
+}
+.amenities {
+	display: inline;
+	vertical-align: middle;
+	height: 100%;
+	float: left;
+    width: 25%;
+
+
 	line-height: 20px;
 }
 
@@ -33,14 +45,14 @@
 	display: none;
 	background-color: #FAFAFA;
 	width: 100%;
-
+    z-index: 100;
 	margin-left: -1px;
 	margin-top: 8px;
 	padding: 25px 0px;
-
+    position: relative;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
-    max-height: 600px;
+    max-height: 300px;
     overflow: scroll;
 }
 
@@ -51,7 +63,9 @@
 .filter_amenities:hover .popover {
 	display: inline-block;
 }
-
+.amenities:hover .popover {
+	display: inline-block;
+}
 ul {
 	list-style-type: none;
 	padding: 0px;
@@ -62,7 +76,7 @@ li {
 }
 
 h2 {
-	font-size: 16px;
+	font-size: 20px;
 	padding-left: 30px;
 	margin: 0px;
 }

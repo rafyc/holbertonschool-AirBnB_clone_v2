@@ -11,3 +11,6 @@ body {
     max-width: 1000px;
     margin: 30px auto;
 }
+.location h2 {
+    font-size: 30px;
+}
